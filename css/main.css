@@ -1,0 +1,294 @@
+body {
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    color: #1E252F;
+    text-rendering: optimizeLegibility;
+    font-synthesis: none;
+    -webkit-font-smoothing: antialiased;
+}
+a {
+    text-decoration: none;
+    color: #1A6CE7;
+}
+a:hover {
+    text-decoration: underline;
+}
+#snowflake {
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+#globalNav {
+    display: flex;
+    box-sizing: border-box;
+    width: 64px;
+    background-color: #F7F7F7;
+    border-right: 1px solid #D5DAE4;
+    background-image: url(../img/globalNavTop.svg), url(../img/globalNavBottom.svg);
+    background-repeat: no-repeat, no-repeat;
+    background-size: 100% auto, 100% auto;
+    background-position: top, bottom;
+}
+#app {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    background-color: #fff;
+}
+#appBar {
+    display: flex;
+    height: 64px;
+    border-bottom: 1px solid #D5DAE4;
+}
+#appContent {
+    display: flex;
+    flex-grow: 1;
+}
+#panelMain {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+.gutter.gutter-horizontal {
+    cursor: col-resize;
+    width: 16px !important;
+    margin-right: -16px;
+    transform: translateX(-8px);
+    z-index: 1;
+    position: relative;
+}
+.gutter.gutter-horizontal:hover {
+    background-color: rgba(0, 0, 0, .04);
+}
+.barContent {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.barContent.left {
+    flex-grow: 1;
+}
+#appBar {
+    padding: 0 24px;
+}
+.allCap {
+    font-size: 13px !important;
+    text-transform: uppercase;
+}
+.titleParent, .titleApp {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    padding: 8px;
+}
+.titleParent {
+    color: #5D6A85;
+}
+.panelBar {
+    height: 56px;
+    display: flex;
+    padding: 0 16px;
+}
+.panelContent {
+    width: 100%;
+    flex-grow: 1;
+    position: relative;
+}
+#panelMain .barContent.left {
+    gap: 0;
+}
+.panelTitle {
+    font-weight: 600;
+}
+.panelBar.center .barContent.left, .barContent.right {
+    flex-grow: 0;
+}
+.panelBar.center .barContent.center {
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+}
+#statusBar {
+    height: 40px;
+    background-color: #FBFBFB;
+    border-top: 1px solid #D5DAE4;
+    box-sizing: border-box;
+}
+.emptyState {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 320px;
+    border-top: 1px solid #D5DAE4;
+}
+.emptyStateMessage {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 400px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.emptyStateMessage button {
+    margin-top: 8px;
+}
+
+*[data-info] {
+    position: relative;
+}
+*[data-info]::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 8px 12px;
+    border-radius: 6px;
+    background: #fff;
+    border: 1px solid #BDC4D5;
+    /* display: none; */
+    opacity: 0;
+    transition: none;
+    box-shadow: var(--_Elevation-Elevation-3-X, 0px) var(--_Elevation-Elevation-3-Y, 4px) var(--_Elevation-Elevation-3-Blur, 16px) 0px var(--_Elevation-Elevation-3-Color, rgba(25, 30, 36, 0.20));
+    color: var(--Reusable-Primary-text, #1E252F);
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px; /* 133.333% */
+    text-transform: none;
+    white-space: nowrap;
+    z-index: 999;
+}
+*[data-info]:hover {
+    overflow: visible;
+    z-index: 999;
+}
+*[data-info]:hover::before {
+    transition: all .2s ease .4s;
+    top: 150%;
+    content: attr(data-info);
+    /* display: block; */
+    opacity: 1;
+}
+#baseTables {
+    margin-top: 16px;
+    /* overflow: hidden; */
+    display: none;
+}
+#baseTables h4 {
+    margin-bottom: 8px;
+}
+#baseTables .baseTable {
+    color: #5D6A85;
+    margin: 4px 16px 4px 0;
+    display: inline-flex;
+    /* width: 100%; */
+    /* overflow: hidden; */
+    /* text-overflow: ellipsis; */
+}
+#baseTables .baseTable::after {
+    content: ",";
+}
+#baseTables .baseTable:last-child:after {
+    content: "";
+}
+.bannerGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 0 -16px;
+    margin-bottom: 16px;
+}
+.banner {
+    display: flex;
+    min-width: 376px;
+    padding: var(--2x, 16px);
+    align-items: flex-start;
+    gap: var(--1x, 8px);
+    border-radius: var(--Medium-corner, 8px);
+    background: var(--Status-Neutral-Background, #ECEEF1);
+}
+.banner > .icon {
+    margin: 0 4px;
+}
+.bannerText {
+    display: flex;
+    min-width: 280px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--0_5x, 4px);
+    flex: 1 0 0;    
+}
+.bannerPrimaryText {
+    color: var(--Status-Neutral-Text, #1E252F);
+
+    /* Label text */
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px; /* 114.286% */    
+}
+.bannerSecondaryText {
+    color: var(--Status-Neutral-Text, #1E252F);
+
+    /* Small text */
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px; /* 133.333% */
+}
+.banner.caution {
+    border-radius: var(--Medium-corner, 8px);
+    background: var(--Status-Caution-Background, #FFEDCD);    
+}
+.banner.caution .bannerPrimaryText {
+    color: var(--Status-Caution-Text, #653E03);
+
+    /* Label text */
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px; /* 114.286% */    
+}
+.banner.caution .bannerSecondaryText {
+    color: var(--Status-Caution-Text, #653E03);
+
+    /* Small text */
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px; /* 133.333% */    
+}
+.learnMore {
+    white-space: nowrap;
+}
+.guide {
+    display: none;
+}
+#toggleToC {
+    position: absolute;
+    top: 16px;
+    left: 24px;
+    z-index: 99;
+}
+#toggleToC .slide-left {
+    display: none;
+}
+#toggleToC .list {
+    display: block;
+}
+.tocOpened #toggleToC .list {
+    display: none;
+}
+.tocOpened #toggleToC .slide-left {
+    display: block;
+}

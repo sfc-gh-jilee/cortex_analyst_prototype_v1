@@ -1,0 +1,125 @@
+button {
+    display: flex;
+    font-family: "Inter", sans-serif;
+    height: 32px;
+    padding: 0 12px;
+    font-weight: 500;
+    position: relative;
+    align-items: center;
+    gap: 8px;
+    box-sizing: border-box;
+}
+button.small {
+    height: 24px;
+    font-size: 12px !important;
+}
+button.iconOnly {
+    padding: 0;
+}
+button.primary {
+    display: inline-flex;
+    padding: var(--1x, 8px) var(--1_5x, 12px);
+    justify-content: center;
+    align-items: center;
+    gap: var(--1x, 8px);
+
+    border: 1px solid transparent;
+    border-radius: var(--Small-corner, 6px);
+    background: var(--_Components-Button-Primary-Background-default, #1A6CE7);
+    color: var(--_Components-Button-Primary-Text-default, #FFF);
+    text-align: center;
+    
+    /* Label text */
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px; /* 114.286% */
+}
+button.primary:hover {
+    background: var(--_Components-Button-Primary-Background-hover, #085BD7);
+}
+button.primray:active {
+    background: var(--_Components-Button-Primary-Background-press, #003E9A);
+}
+.field:hover .tertiary,
+.block:hover .tertiary,
+button.secondary {
+    border-radius: 6px;
+    font-size: 14px;
+    line-height: 16px;
+    color: #1E252F;
+    background-color: #FBFBFB;
+    border: 1px solid #BDC4D5;
+}
+.field:hover .tertiary:hover,
+.block:hover .tertiary:hover,
+button.secondary:hover {
+    background-color: #FBFBFB;
+    border: 1px solid #9FABC1;
+}
+.field:hover .tertiary:active,
+.block:hover .tertiary:focus:active,
+.field:hover .tertiary:active,
+.block:hover .tertiary:focus:active,
+button.secondary:active, 
+button.secondary:focus:active {
+    background-color: #DEE3EA;
+    border: 1px solid #9FABC1;
+}
+button.secondary:focus  {
+    border: 1px solid transparent;
+    outline: 2px solid #D6E6FF;
+}
+button.secondary.disabled {
+    background-color: #FFFFFF;
+    border: 1px solid #DEE3EA;
+    color: #9FABC1;
+}
+
+button.tertiary {
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    color: #5D6A85;
+}
+button.tertiary.allCap {
+    font-size: 12px !important;
+}
+button.tertiary:hover {
+    background-color: #D5DAE4;
+}
+button.tertiary:active, 
+button.tertiary:focus:active {
+    background-color: #BDC4D5;
+}
+button.tertiary:focus {
+    outline: 2px solid #D6E6FF;
+}
+
+button.iconOnly {
+    text-indent: -9999px;
+    box-sizing: border-box;
+    width: 32px;
+    flex-shrink: 0;
+}
+button.small.iconOnly,
+button.small.secondary.iconOnly
+button.small.tertiary.iconOnly {
+    width: 24px;
+}
+button.iconOnly span.icon {
+    position: absolute;
+    top: 7px;
+    left: 7px;
+}
+button.secondary.iconOnly span.icon {
+    position: absolute;
+    top: 7px;
+    left: px;
+}
+button.small.iconOnly span.icon {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+}

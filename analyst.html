@@ -1,0 +1,209 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/main.css" />
+        <link rel="stylesheet" type="text/css" href="css/button.css" />
+        <link rel="stylesheet" type="text/css" href="css/icons.css" />
+        <link rel="stylesheet" type="text/css" href="css/semantic-model.css" />
+        <link rel="stylesheet" type="text/css" href="css/toc.css" />
+        <link rel="stylesheet" type="text/css" href="css/playground.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" />
+
+        <!--Mock Data-->
+        <script src="demo.js"></script>
+        <!-- <script src="snow_tpch.js"></script> -->
+        <!-- <script src="revenue_timeseries.js"></script> -->
+        <!-- <script src="sales.js"></script> -->
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/split.js/1.6.0/split.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/json2html/2.2.3/json2html.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?lang=sql"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/sql.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <script src="js/templates.js"></script>
+        <script src="js/main.js"></script>
+    </head>
+    <body>
+        <div id="snowflake">
+            <div id="globalNav"></div>
+            <div id="app">
+                <div id="appBar">
+                    <div class="barContent left">
+                        <button id="btnNavBack" class="secondary iconOnly"><span class="icon arrow-left"></span>Back</button>
+                        <div class="titleParent">Cortex Studio</div>
+                        <div class="titleApp">Cortex Analyst</div>
+                    </div>
+                    <div class="barContent right">
+                        <button id="btnWarehouse" class="secondary allCap"><span class="icon status-active"></span>SNOWHOUSE</button>
+                        <button id="btnOpen" class="secondary">Open semantic model</button>
+                        <button id="btnPublish" class="secondary"><span class="icon stage"></span>Publish</button>
+                    </div>
+                </div>
+                <div id="appContent" class="split">
+                    <div id="panelMain">
+                        <div class="panelBar">
+                            <div class="barContent left">
+                                <button id="btnStage" class="small tertiary allCap"><span class="icon stage"></span>MYSTAGE</button>
+                                <span class="icon chevron-right-small"></span>
+                                <button id="btnYAML" class="small tertiary">revenue_timeseries.yaml<span class="icon chevron-down"></span></button>        
+                            </div>
+                            <div class="barContent right">
+                                <button id="btnEditYAML" class="small tertiary"><span class="icon format-code-block"></span>Edit YAML</button>
+                                <button id="btnMoreActions" class="small tertiary iconOnly"><span class="icon ellipsis-vertical-bold"></span></button>        
+                            </div>
+                        </div>
+                        <div class="panelContent">
+
+                            <div id="viewSemanticModel">
+                                <div id="toggleToC">
+                                    <button id="btnToggleToC" class="small secondary iconOnly"><span class="icon list"></span><span class="icon slide-left"></span></button>
+                                </div>
+                                <div id="toc" class="top">
+                                    <nav class="section-nav">
+                                        <ol>
+                                            <li id="navTop" class="group"><a href="#about">About</a></li>
+                                            <li class="group"><a href="#logical_tables">Logical tables <span id="logicalTablesCount" class="label count">0</span></a>
+                                                <ol id="logical-tables-nav"></ol>
+                                            </li>
+                                            <li class="group"><a href="#relationships">Relationships <span id="relationshipsCount" class="label count">0</span></a>
+                                                <ol id="relationships-nav"><!--li class="emptyNav">No relationship available</li--></ol>
+                                            </li>
+                                            <li class="group"><a href="#verified_queries">Verified queries <span id="verifiedQueriesCount" class="label count">0</span></a>
+                                                <ol id="verified-queries-nav"></ol>
+                                            </li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                                <div id="semanticModel">
+                                    <div id="doc">
+                                        <div id="about" class="section"></div>
+                                        <div>
+                                            <div id="logical_tables" class="header section">
+                                                <h2>Logical tables <span id="logicalTablesCount" class="label count">0</span></h2>
+                                                <div class="actions"><button id="btnAddLogicalTable" class="small tertiary iconOnly"><span class="icon add"></span></button></div>
+                                            </div>
+                                            <div id="guideForLogicalTables" class="guide">
+                                                <div class="bannerGroup">
+                                                    <div class="banner">
+                                                        <span class="icon info-circle"></span>
+                                                        <div class="bannerText">
+                                                            <div class="bannerPrimaryText">What is logical table?</div>
+                                                            <div class="bannerSecondaryText">Logical table can be thought of as a simple view over a physical database table or view. Each logical table is a collection of logical columns, which are categorized into Dimensions, time_Dimensions and measures. <a href="#" class="learnMore">Learn more</a></div>
+                                                        </div>
+                                                        <button class="small tertiary iconOnly"><span class="icon close"></span></button>
+                                                    </div>
+                                                    <div class="banner">
+                                                        <span class="icon info-circle"></span>
+                                                        <div class="bannerText">
+                                                            <div class="bannerPrimaryText">6 of 9 logical columns missing synonyms</div>
+                                                            <div class="bannerSecondaryText">More synonyms can improve the quality of Answer from Cortex Analyst.</div>
+                                                        </div>
+                                                        <button class="small tertiary iconOnly"><span class="icon close"></span></button>
+                                                    </div>
+                                                    <div class="banner caution">
+                                                        <span class="icon warning-triangle"></span>
+                                                        <div class="bannerText">
+                                                            <div class="bannerPrimaryText">Too many logical tables</div>
+                                                            <div class="bannerSecondaryText">Number of logical tables can affect performance of Cortex Analyst.</div>
+                                                        </div>
+                                                        <button class="small tertiary iconOnly"><span class="icon close"></span></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="viewLogicalTables">
+                                                <div id="emptyVerifiedQueries" class="emptyState">
+                                                    <div class="emptyStateMessage">
+                                                        <div class="pictogram picto-empty"></div>
+                                                        <p>No logical table available. Add logical tables to start testing your semantic model.</p>
+                                                        <button class="small secondary"><span class="icon add"></span>Logical table</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div id="relationships" class="header section">
+                                                <h2>Relationships <span id="relationshipsCount" class="label count">0</span></h2>
+                                                <div class="actions"><button id="btnAddRelationships" class="small tertiary iconOnly"><span class="icon add"></span></button></div>
+                                            </div>
+                                            <div id="guideForRelationships" class="guide">
+                                                <div class="bannerGroup">
+                                                    <div class="banner">
+                                                        <span class="icon info-circle"></span>
+                                                        <div class="bannerText">
+                                                            <div class="bannerPrimaryText">What is relationship?</div>
+                                                            <div class="bannerSecondaryText">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <a href="#" class="learnMore">Learn more</a></div>
+                                                        </div>
+                                                        <button class="small tertiary iconOnly"><span class="icon close"></span></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="viewRelationships">
+                                                <div id="emptyRelationships" class="emptyState">
+                                                    <div class="emptyStateMessage">
+                                                        <div class="pictogram picto-empty"></div>
+                                                        <p>No relationships available. Add relationship to help Cortex Analyst to be able to generate SQL queries with JOINs.</p>
+                                                        <button class="small secondary"><span class="icon add"></span>Relationship</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div id="verified_queries" class="header section">
+                                                <h2>Verified queries <span id="verifiedQueriesCount" class="label count">0</span></h2>
+                                                <div class="actions"><button id="btnAddVerifiedQueries" class="small tertiary iconOnly"><span class="icon add"></span></button></div>
+                                            </div>
+                                            <div id="guideForVerifiedQueries" class="guide">
+                                                <div class="bannerGroup">
+                                                    <div class="banner">
+                                                        <span class="icon info-circle"></span>
+                                                        <div class="bannerText">
+                                                            <div class="bannerPrimaryText">What is verified query?</div>
+                                                            <div class="bannerSecondaryText">Verified query can help improve the accuracy and trustworthiness of results by providing a collection of questions and corresponding SQL queries to answer them. Cortex Analyst then leverages relevant SQL queries from the repository when answering similar questions. <a href="#" class="learnMore">Learn more</a></div>
+                                                        </div>
+                                                        <button class="small tertiary iconOnly"><span class="icon close"></span></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="viewVerifiedQueries">
+                                                <div id="emptyVerifiedQueries" class="emptyState">
+                                                    <div class="emptyStateMessage">
+                                                        <div class="pictogram picto-empty"></div>
+                                                        <p>No verified queries available. You can test questions in the Chat UI on the right and add queries that satisfied your questions to here.</p>
+                                                        <button class="small secondary"><span class="icon play"></span>Start testing</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div id="panelPlayground">
+                        <div class="panelBar center">
+                            <div class="barContent left">
+                                <button id="btnMoreActions" class="small tertiary iconOnly"><span class="icon slide-right"></span></button>        
+                            </div>
+                            <div class="barContent center">
+                                <span class="panelTitle">Test semantic model</span>
+                            </div>
+                            <div class="barContent right">
+                                <button id="btnMoreActions" class="small tertiary iconOnly"><span class="icon refresh"></span></button>        
+                            </div>
+                        </div>
+                        <div class="panelContent">
+                            <div id="welcomeMessage"></div>
+                        </div>
+                        <div id="chatInput">
+                            <textarea id="yourMessage"></textarea>
+                            <button id="btnSend" class="secondary iconOnly"><span class="icon send"></span>Back</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="statusBar"></div>
+            </div>
+        </div>
+    </body>
+</html>

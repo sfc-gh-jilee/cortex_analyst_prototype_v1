@@ -1,0 +1,75 @@
+#panelPlayground {
+    border-left: 1px solid #D5DAE4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.panelBar {
+    width: 100%;
+    box-sizing: border-box;
+}
+#chatInput {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 24px 24px 24px;
+    position: relative;
+    max-width: 800px;
+}
+#yourMessage {
+    width: 100%;
+    border-radius: 8px;
+    height: 96px;
+    border: 1px solid #D5DAE4;
+    padding: 16px 48px 16px 16px;
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    color: #1E252F;
+    text-rendering: optimizeLegibility;
+    font-synthesis: none;
+    -webkit-font-smoothing: antialiased;
+}
+#yourMessage:focus {
+    border: 1px solid #1A6CE7;
+    outline: 3px solid #D6E6FF;
+}
+#btnSend {
+    position: absolute;
+    right: 40px;
+    bottom: 40px;
+}
+.badge {
+    display: flex;
+    width: 48px;
+    height: 48px;
+    padding: 8px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background: var(--Status-Info-Background, #D6E6FF);
+    box-shadow: var(--_Elevation-Elevation-1-X, 0px) var(--_Elevation-Elevation-1-Y, 2px) var(--_Elevation-Elevation-1-Blur, 4px) 0px var(--_Elevation-Elevation-1-Color, rgba(25, 30, 36, 0.10));
+}
+#welcomeMessage {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#welcomeMessage > div {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    padding: 64px;
+    align-items: center;
+    gap: 24px;
+    text-align: center;
+}
+#welcomeMessage .about {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}

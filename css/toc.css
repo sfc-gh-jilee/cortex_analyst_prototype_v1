@@ -1,0 +1,107 @@
+ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+li {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border-right: 0 solid transparent;
+    position: relative;
+    /* overflow: hidden; */
+}
+nav {
+    width: 100%;
+}
+nav.section-nav > ol {
+    border-right: 1px solid #D5DAE4;
+    padding: 4px 0 0;
+}
+#toc {
+    /* padding: 20px 0 0 12px; */
+    padding: 44px 0 0 12px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+    transition: all .4s;
+    scroll-behavior: smooth;
+}
+#toc:hover {
+    scrollbar-color: silver transparent;   
+}
+/* #toc li.group.active::after, */
+/* #toc li.active li.active::after, */
+#toc li.active::after,
+#toc.top li#navTop.active::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -4px;
+    right: 0;
+    height: 40px;
+    width: 2px;
+    background-color: #085BD7;
+}
+/* #toc li.group.active > a,     */
+/* #toc li.active li.active > a, */
+#toc li.active > a,
+#toc.top li#navTop.active > a {
+    color: #085BD7;
+    font-weight: 600;
+}
+
+#toc.top li.active::after {
+    display: none;
+}
+#toc.top li.active > a {
+    color: #5D6A85;
+    font-weight: 500;
+}
+
+#toc a {
+    display: flex;
+    height: 32px;
+    align-items: center;
+    text-decoration: none;
+    color: #5D6A85;
+    font-weight: 500;
+    padding: 0 12px;
+    border-radius: 6px;
+    box-sizing: border-box;
+    margin-right: 12px;
+    position: relative;
+}
+#toc a span {
+    display: block;
+    text-wrap: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+#toc a:hover {
+    background-color: #ECEEF1;
+}
+#toc a:active {
+    background-color: #D5DAE4;
+}
+
+#toc ol ol {
+    padding: 4px 0;
+}
+#toc li.sub a {
+    padding: 0 12px 0 24px;
+    font-size: 12px;
+}
+.emptyNav {
+    padding: 0 12px 0 24px;
+    font-size: 12px;
+    height: 40px;
+    line-height: 40px;
+    color: #9FABC1;
+    font-weight: 500;
+}
+#toc .count {
+    position: absolute;
+    right: 8px;
+}

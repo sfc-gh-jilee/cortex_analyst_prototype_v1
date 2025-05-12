@@ -1,0 +1,65 @@
+span.icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+    flex-shrink: 0;
+    flex-grow: 0;
+}
+span.icon.arrow-left {  background-image: url(../img/icons/arrow-left.svg);    }
+span.icon.stage {  background-image: url(../img/icons/stage.svg);    }
+span.icon.status-active {  background-image: url(../img/icons/status-active.svg);    }
+span.icon.chevron-down {  background-image: url(../img/icons/chevron-down.svg);    }
+span.icon.chevron-right {  background-image: url(../img/icons/chevron-right.svg);    }
+span.icon.chevron-expand {  background-image: url(../img/icons/chevron-expand.svg);    }
+span.icon.chevron-collapse {  background-image: url(../img/icons/chevron-collapse.svg);    }
+span.icon.chevron-right-small {  background-image: url(../img/icons/chevron-right-small.svg);    }
+span.icon.format-code-block {  background-image: url(../img/icons/format-code-block.svg);    }
+span.icon.ellipsis-vertical-bold {  background-image: url(../img/icons/ellipsis-vertical-bold.svg);    }
+span.icon.slide-left {  background-image: url(../img/icons/slide-left.svg);    }
+span.icon.slide-right {  background-image: url(../img/icons/slide-right.svg);    }
+span.icon.refresh {  background-image: url(../img/icons/refresh.svg);    }
+span.icon.send {  background-image: url(../img/icons/send.svg);    }
+span.icon.delete {  background-image: url(../img/icons/delete.svg);    }
+span.icon.logical-table {  background-image: url(../img/icons/logical-table.svg);    }
+span.icon.ph_table {  background-image: url(../img/icons/table.svg);    }
+span.icon.type_date {  background-image: url(../img/icons/type_date.svg);    }
+span.icon.type_timestamp {  background-image: url(../img/icons/type_date.svg);    }
+span.icon.type_number {  background-image: url(../img/icons/type_number.svg);    }
+span.icon.type_varchar {  background-image: url(../img/icons/varchar.svg);    }
+span.icon.type_text {  background-image: url(../img/icons/varchar.svg);    }
+span.icon.verified-query {  background-image: url(../img/icons/verified-query.svg);    }
+span.icon.add {  background-image: url(../img/icons/add.svg);    }
+span.icon.play {  background-image: url(../img/icons/play.svg);    }
+span.icon.join {  background-image: url(../img/icons/join.svg);    }
+span.icon.join-regular {  background-image: url(../img/icons/join_regular.svg);    }
+span.icon.info-circle {  background-image: url(../img/icons/info-circle.svg);    }
+span.icon.warning-triangle {  background-image: url(../img/icons/warning-triangle.svg);    }
+span.icon.close {  background-image: url(../img/icons/close.svg);    }
+span.icon.list {  background-image: url(../img/icons/list.svg);    }
+
+div.largeIcon {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+    flex-shrink: 0;
+    flex-grow: 0;
+}
+div.largeIcon.semantic-model {  background-image: url(../img/icons/data-semantic.svg);    }
+
+div.pictogram {
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+    flex-shrink: 0;
+    flex-grow: 0;
+}
+div.pictogram.picto-empty {  background-image: url(../img/icons/picto-empty.svg);    }
